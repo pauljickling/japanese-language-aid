@@ -17,7 +17,8 @@ r_seq = ["ra", "ri", "ru", "re", "ro"]
 w_seq = ["wa", "(w)o"]
 n_seq = ["n"]
 
-letters = vowel_seq + k_seq + s_seq + t_seq + n_seq + h_seq + m_seq + \
+letters = vowel_seq + k_seq + k_voiced_seq + s_seq + s_voiced_seq + t_seq + \
+    t_voiced_seq + n_seq + h_seq + h_voiced_seq + h_aspirated_seq + m_seq + \
     y_seq + r_seq + w_seq + n_seq
 
 n = 10
