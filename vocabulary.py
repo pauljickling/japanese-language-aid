@@ -13,6 +13,16 @@ verbs = {"tanomu": "to request",
          "shimasu": "to do",
          "desu": "to be", }
 
+nouns = {"watashi": "I",
+         "musume": "girl/daughter",
+         "yuki": "snow",
+         "kaji": "fire",
+         "sensei": "teacher",
+         "senpai": "upper classmate",
+         "ashita": "tomorrow",
+         "chokoreto": "chocolate",
+         "gakko": "school", }
+
 verbs_arr = [v for i, v in enumerate(verbs)]
 random_verbs = []
 n = 10
