@@ -11,6 +11,7 @@ verbs = {"tanomu": "to request",
          "mimasu": "to watch",
          "kimasu": "to come",
          "shimasu": "to do",
+         "okuru": "to send",
          "desu": "to be", }
 
 nouns = {"watashi": "I",
@@ -21,7 +22,34 @@ nouns = {"watashi": "I",
          "senpai": "upper classmate",
          "ashita": "tomorrow",
          "chokoreto": "chocolate",
-         "gakko": "school", }
+         "gakko": "school",
+         "haru": "spring",
+         "gohan": "meal/rice",
+         "neko": "cat",
+         "inu": "dog", }
+
+adjectives = {"osoi": "late",
+              "samui": "cold",
+              "atsui": "hot",
+              "muzukashii": "difficult",
+              "okii": "big",
+              "chiisai": "small",
+              "oishii": "delicious",
+              "mazui": "unsavory",
+              "toi": "far",
+              "chikai": "near",
+              "omoshiroi": "interesting",
+              "tsumaranai": "boring",
+              "ayashii": "suspicious",
+              "nagai": "long",
+              "mijikai": "short",
+              "yasui": "cheap",
+              "takai": "expensive",
+              "kirei": "beautiful", }
+
+particles = {"ne": "right?",
+             "na": "right? (masculine)",
+             "yo": "take note", }
 
 verbs_arr = [v for i, v in enumerate(verbs)]
 random_verbs = []
