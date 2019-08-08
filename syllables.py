@@ -29,7 +29,7 @@ y_seq = ["ya", "yu", "yo"]
 y_seq_hira = ["や", "ゆ", "よ"]
 r_seq = ["ra", "ri", "ru", "re", "ro"]
 r_seq_hira = ["ら", "り", "る", "れ", "ろ"]
-w_seq = ["wa", "(w)o"]
+w_seq = ["wa", "wo"]
 w_seq_hira = ["わ", "を"]
 n_seq = ["n"]
 n_seq_hira = ["ん"]
@@ -48,7 +48,7 @@ c_combo_hira = ["ちゃ", "ちゅ", "ちょ"]
 n_combo = ["nya", "nyu", "nyo"]
 n_combo_hira = ["にゃ", "にゅ", "にょ"]
 h_combo = ["hya", "hyu", "hyo"]
-H_combo_hira = ["ひゃ", "ヒュ", "ひょ"]
+h_combo_hira = ["ひゃ", "ヒュ", "ひょ"]
 h_voiced_combo = ["bya", "byu", "byo"]
 h_voiced_combo_hira = ["びゃ", "びゅ", "びょ"]
 h_aspirated_combo = ["pya", "pyu", "pyo"]
@@ -61,16 +61,45 @@ r_combo_hira = ["りゃ", "りゅ", "りょ"]
 letters = vowel_seq + k_seq + k_voiced_seq + s_seq + s_voiced_seq + t_seq + \
     t_voiced_seq + n_seq + h_seq + h_voiced_seq + h_aspirated_seq + m_seq + \
     y_seq + r_seq + w_seq + n_seq + k_combo + k_voiced_combo + s_combo + \
-    s_voiced_combo + c_combo + c_voiced_combo + n_combo + h_combo + \
+    s_voiced_combo + c_combo + n_combo + h_combo + \
     h_voiced_combo + h_aspirated_combo + m_combo + r_combo
 
-n = 10
+hiragana = vowel_seq_hira + k_seq_hira + k_voiced_seq_hira + s_seq_hira + \
+    s_voiced_seq_hira + t_seq_hira + t_voiced_seq_hira + n_seq_hira + \
+    h_seq_hira + h_voiced_seq_hira + h_aspirated_seq_hira + m_seq_hira + \
+    y_seq_hira + r_seq_hira + w_seq_hira + n_seq_hira + k_combo_hira + \
+    k_voiced_combo_hira + s_combo_hira + s_voiced_combo_hira + \
+    c_combo_hira + n_combo_hira + h_combo_hira + h_voiced_combo_hira + \
+    h_aspirated_combo_hira + m_combo_hira + r_combo_hira
+
 
 writing_systems = ["hiragana", "katakana"]
 
-print("Write the letter for the following characters in {}:"
-      .format(random.choice(writing_systems)))
 
-while n > 0:
-    print(random.choice(letters))
-    n -= 1
+def english_to_japanese(n):
+    print("Write the letter for the following characters in {}:"
+          .format(random.choice(writing_systems)))
+    while n > 0:
+        print(random.choice(letters))
+        n -= 1
+
+
+def hiragana_to_english(n):
+    score = 0
+    incorrect_answers = []
+    print("Identify the following hiragana:")
+    while n > 0:
+        question = random.choice(hiragana)
+        hira_index = hiragana.index(question)
+        answer = input("{}".format(question))
+        if answer == letters[hira_index]:
+            score += 1
+        else:
+            incorrect_answers.append(question)
+        n -= 1
+    print("You earned a score of {}".format(score))
+    print("You answered incorrectly for the following:")
+    print(incorrect_answers)
+
+
+hiragana_to_english(10)
