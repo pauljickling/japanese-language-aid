@@ -154,8 +154,8 @@ def english_to_japanese(n):
 
 def hiragana_to_english(n, feedback=False):
     """
-    Randomly selects some hiragana and asks the user to identify them.
-    Since this is input that actually tests learning, we score it.
+    n is the number of questions, and feedback is a boolean that if true
+    gives feedback for wrong answers.
     """
     score = 0
     incorrect_answers = []
