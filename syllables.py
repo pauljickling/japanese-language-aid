@@ -152,7 +152,7 @@ def english_to_japanese(n):
         n -= 1
 
 
-def hiragana_to_english(n):
+def hiragana_to_english(n, feedback=False):
     """
     Randomly selects some hiragana and asks the user to identify them.
     Since this is input that actually tests learning, we score it.
@@ -166,9 +166,13 @@ def hiragana_to_english(n):
         answer = input("{}\n".format(question))
         answer = answer.lower()
         if answer == letters[hira_index]:
+            print("Correct!")
             score += 1
         else:
             incorrect_answers.append(question)
+            if feedback is True:
+                print("Incorrect. Correct answer was {}".format(
+                        letters[hira_index]))
         n -= 1
     print("You earned a score of {} out of {}".format(score, n))
     print("Your answers were incorrect for the following hiragana:")
@@ -188,13 +192,17 @@ def katakana_to_english(n):
         answer = input("{}\n".format(question))
         answer = answer.lower()
         if answer == letters[kata_index]:
+            print("Correct!")
             score += 1
         else:
             incorrect_answers.append(question)
+            if feedback is True:
+                print("Incorrect. Correct answer was {}".format(
+                        lettersw[kata_index]))
         n -= 1
     print("You earned a score of {} out of {}".format(score, n))
     print("Your answers were incorrect for the following katakana:")
     print(incorrect_answers)
 
 
-hiragana_to_english(10)
+hiragana_to_english(10, True)
