@@ -171,15 +171,15 @@ def hiragana_to_english(n, feedback=False):
         else:
             incorrect_answers.append(question)
             if feedback is True:
-                print("Incorrect. Correct answer was {}".format(
+                print("Incorrect. Correct answer was {}.".format(
                         letters[hira_index]))
         n -= 1
-    print("You earned a score of {} out of {}".format(score, n))
+    print("You answered {} correctly!".format(score))
     print("Your answers were incorrect for the following hiragana:")
     print(incorrect_answers)
 
 
-def katakana_to_english(n):
+def katakana_to_english(n, feedback=False):
     """
     Same thing, but with katakana
     """
@@ -197,10 +197,10 @@ def katakana_to_english(n):
         else:
             incorrect_answers.append(question)
             if feedback is True:
-                print("Incorrect. Correct answer was {}".format(
+                print("Incorrect. Correct answer was {}.".format(
                         lettersw[kata_index]))
         n -= 1
-    print("You earned a score of {} out of {}".format(score, n))
+    print("You answered {} correctly!".format(score))
     print("Your answers were incorrect for the following katakana:")
     print(incorrect_answers)
 
