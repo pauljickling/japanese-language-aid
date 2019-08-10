@@ -267,6 +267,7 @@ def hiragana_reps():
     Practice for repeating hiragana chars
     """
     roman_index = 0
+    score = 0
     print("Type the romanji for the following hiragana:")
     for row in hira_reps:
         for i in row:
@@ -275,8 +276,39 @@ def hiragana_reps():
                 print("Incorrect, answer is {}".format(letters[roman_index]))
             else:
                 print("Correct!")
+                score += 1
             roman_index += 1
+    print("Final score of {} out of {}".format(score, len(hiragana)))
 
 
-hiragana_reps()
+# hiragana_reps()
 # hiragana_to_english(10, True)
+
+select = input("""Select exercise:
+1. Hiragana chart
+2. Random Hiragana characters
+3. Random Katakana characters
+4. English to Japanese
+""")
+
+if select == "1":
+    hiragana_reps()
+if select == "2":
+    n = input("Select number of characters\n")
+    feedback = input("Receive feedback? (y/n)\n")
+    if feedback == "y":
+        hiragana_to_english(int(n), True)
+    else:
+        hiragana_to_english(int(n))
+if select == "3":
+    n = input("Select number of characters\n")
+    feedback = input("Receive feedback? (y/n)\n")
+    if feedback == "y":
+        katakana_to_english(int(n), True)
+    else:
+        katakana_to_english(int(n))
+if select == "4":
+    n = input("Select number of characters\n")
+    english_to_japanese(int(n))
+else:
+    print("Invalid number selected")
