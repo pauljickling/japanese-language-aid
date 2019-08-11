@@ -138,7 +138,7 @@ hira_reps.append(n_combo_hira)
 kata_reps.append(n_combo_kata)
 
 h_combo = ["hya", "hyu", "hyo"]
-h_combo_hira = ["ひゃ", "ヒュ", "ひょ"]
+h_combo_hira = ["ひゃ", "ひゅ", "ひょ"]
 h_combo_kata = ["ヒャ", "ヒュ", "ヒョ"]
 hira_reps.append(h_combo_hira)
 kata_reps.append(h_combo_kata)
@@ -150,7 +150,7 @@ hira_reps.append(h_voiced_combo_hira)
 kata_reps.append(h_voiced_combo_kata)
 
 h_aspirated_combo = ["pya", "pyu", "pyo"]
-h_aspirated_combo_hira = ["ピャ", "ピュ", "ぴょ"]
+h_aspirated_combo_hira = ["ぴや", "ぴゅ", "ぴょ"]
 h_aspirated_combo_kata = ["ピャ", "ピュ", "ピョ"]
 hira_reps.append(h_aspirated_combo_hira)
 kata_reps.append(h_aspirated_combo_kata)
