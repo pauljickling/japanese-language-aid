@@ -209,71 +209,55 @@ def english_to_japanese(n):
         n -= 1
 
 
-def hiragana_to_english(n, feedback=False):
+def japanese_to_english(n, writing, feedback=False):
     """
-    n is the number of questions, and feedback is a boolean that if true
-    gives feedback for wrong answers.
+    n is number of questions. Writing is hiragana or katakana. Defaults to
+    hiragana if a bad answer is supplied. Set feedback to True for immediate
+    feedback about answers.
     """
+    total = n
     score = 0
-    incorrect_answers = []
-    print("Identify the following hiragana:")
+    incorrect = []
+    print("Identify the following {}:".format(writing))
+    if writing == "katakana":
+        japanese = katakana
+    else:
+        japanese = hiragana
     while n > 0:
-        question = random.choice(hiragana)
-        hira_index = hiragana.index(question)
+        question = random.choice(japanese)
+        jp_index = japanese.index(question)
         answer = input("{}\n".format(question))
         answer = answer.lower()
-        if answer == letters[hira_index]:
+        if answer == letters[jp_index]:
             print("Correct!")
             score += 1
         else:
-            incorrect_answers.append(question)
+            incorrect.append(question)
             if feedback is True:
                 print("Incorrect. Correct answer was {}.".format(
-                        letters[hira_index]))
+                        letters[jp_index]))
         n -= 1
-    print("You answered {} correctly!".format(score))
-    print("Your answers were incorrect for the following hiragana:")
-    print(incorrect_answers)
+    print("You answered {} out of {} correctly!".format(score, total))
+    print("Your answers were wrong for the following {}:".format(writing))
+    print(incorrect)
 
 
-def katakana_to_english(n, feedback=False):
+def reps(writing):
     """
-    Same thing, but with katakana
+    Practice the entire hiragana or katakana chart
     """
-    score = 0
-    incorrect_answers = []
-    print("Identify the following katakana:")
-    while n > 0:
-        question = random.choice(katakana)
-        kata_index = katakana.index(question)
-        answer = input("{}\n".format(question))
-        answer = answer.lower()
-        if answer == letters[kata_index]:
-            print("Correct!")
-            score += 1
-        else:
-            incorrect_answers.append(question)
-            if feedback is True:
-                print("Incorrect. Correct answer was {}.".format(
-                        lettersw[kata_index]))
-        n -= 1
-    print("You answered {} correctly!".format(score))
-    print("Your answers were incorrect for the following katakana:")
-    print(incorrect_answers)
-
-
-def hiragana_reps():
-    """
-    Practice for repeating hiragana chars
-    """
-    roman_index = 0
-    score = 0
-    print("Type the romanji for the following hiragana:")
-    for row in hira_reps:
+    roman_index, score = 0, 0
+    print("Type the romanji for the following {}:".format(writing))
+    if writing == "katakana":
+        reps = kata_reps
+    else:
+        reps = hira_reps
+    for row in reps:
         for i in row:
             answer = input("{}\n".format(i))
             if answer != letters[roman_index]:
-                print("Incorrect, answer is {}".format(letters[roman_index]))
+                print("Incorrect. Correct answer was {}.".format(
+                        letters[roman_index]))
             else:
                 print("Correct!")
                 score += 1
@@ -281,34 +265,32 @@ def hiragana_reps():
     print("Final score of {} out of {}".format(score, len(hiragana)))
 
 
-# hiragana_reps()
-# hiragana_to_english(10, True)
-
 select = input("""Select exercise:
-1. Hiragana chart
-2. Random Hiragana characters
-3. Random Katakana characters
-4. English to Japanese
+1. Practice Hiragana chart
+2. Practice Katakana chart
+3. Hiragana quiz
+4. Katakana quiz
+5. English to Japanese
 """)
 
 if select == "1":
-    hiragana_reps()
+    reps("hiragana")
 if select == "2":
-    n = input("Select number of characters\n")
-    feedback = input("Receive feedback? (y/n)\n")
-    if feedback == "y":
-        hiragana_to_english(int(n), True)
-    else:
-        hiragana_to_english(int(n))
+    reps("katakana")
 if select == "3":
     n = input("Select number of characters\n")
     feedback = input("Receive feedback? (y/n)\n")
     if feedback == "y":
-        katakana_to_english(int(n), True)
+        japanese_to_english(int(n), "hiragana", True)
     else:
-        katakana_to_english(int(n))
+        japanese_to_english(int(n), "hiragana")
 if select == "4":
     n = input("Select number of characters\n")
+    feedback = input("Receive feedback? (y/n)\n")
+    if feedback == "y":
+        japanese_to_english(int(n), "katakana", True)
+    else:
+        japanese_to_english(int(n), "katakana")
+if select == "5":
+    n = input("Select number of characters\n")
     english_to_japanese(int(n))
-else:
-    print("Invalid number selected")
