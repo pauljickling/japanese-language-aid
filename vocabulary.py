@@ -14,22 +14,18 @@ class Word:
         return "{} {} {}".format(self.jp, self.romanji, self.english)
 
 
-eat = Word("taberu", "to eat", "食べる")
-
-verbs = {"tanomu": "to request",
-         "ikamasu": "to go",
-         "mitomemasu": "to confirm",
-         "kaerimasu": "to leave",
-         "itadakimasu": "to receive (a meal)",
-         "kaimasu": "to buy",
-         "nomimasu": "to drink",
-         "tabemasu": "to eat",
-         "mimasu": "to watch",
-         "kimasu": "to come",
-         "shimasu": "to do",
-         "okuru": "to send",
-         "食べる": "to eat",
-         "desu": "to be", }
+verbs = [Word("tanomu", "to request", "頼む"),
+         Word("taberu", "to eat", "食べる"),
+         Word("ikamasu", "to go", "イカます"),
+         Word("mitomemasu", "to confirm", "認めます"),
+         Word("kaerimasu", "to leave", "帰ります"),
+         Word("nomimasu", "to drink", "のみうます"),
+         Word("tabemasu", "to eat", "食べます"),
+         Word("mimasu", "to watch", "見ます"),
+         Word("kimasu", "to come", "きます"),
+         Word("shimasu", "to do", "します"),
+         Word("okuru", "to send", "送る"),
+         Word("desu", "to be", "です"), ]
 
 nouns = {"watashi": "I",
          "musume": "girl/daughter",
