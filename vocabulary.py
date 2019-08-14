@@ -1,5 +1,21 @@
 import random
 
+
+class Word:
+
+    def __init__(self, romanji, english, jp, hiragana=None, katakana=None):
+        self.romanji = romanji
+        self.english = english
+        self.jp = jp
+        self.hiragana = hiragana
+        self.katakana = katakana
+
+    def __repr__(self):
+        return "{} {} {}".format(self.jp, self.romanji, self.english)
+
+
+eat = Word("taberu", "to eat", "食べる")
+
 verbs = {"tanomu": "to request",
          "ikamasu": "to go",
          "mitomemasu": "to confirm",
@@ -12,10 +28,12 @@ verbs = {"tanomu": "to request",
          "kimasu": "to come",
          "shimasu": "to do",
          "okuru": "to send",
+         "食べる": "to eat",
          "desu": "to be", }
 
 nouns = {"watashi": "I",
          "musume": "girl/daughter",
+         "家族": "family",
          "yuki": "snow",
          "kaji": "fire",
          "sensei": "teacher",
